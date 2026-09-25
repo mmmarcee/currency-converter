@@ -309,9 +309,9 @@ font-size: 14px;
 .Notifications-list{
   background-color: rgb(33 33 33);
   position: absolute;
- top: calc(100% + 10px);
+ top: calc(100% + 13px);
  left: 50%;                     
-  transform: translateX(-50%); 
+  transform: translateX(-50%) translateY(-3px);
   width: 195px;
   height: 277px;
    overflow-y: auto;       
@@ -319,7 +319,20 @@ font-size: 14px;
    display: flex;
   flex-direction: column;
   align-items: center; 
+  opacity: 0;
+  pointer-events: none;   
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
+
+
+.Notifications-list.open{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0); 
+  pointer-events: auto;
+  
+}
+
 
 .Notifications-items{
   width: auto;
@@ -400,4 +413,31 @@ position: relative;
 
 .delete-notifi:hover{
 filter: brightness(0) saturate(100%) invert(70%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%);
+}
+
+.Clear{
+  margin-top: 10px;
+  color: rgb(237, 237, 237);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.Clear:hover{
+  color: #aeaeae;
+}
+
+
+.Notifications-empty{
+  color: rgb(146, 146, 146);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+
+.notifi-btns{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }

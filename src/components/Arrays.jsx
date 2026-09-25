@@ -24,28 +24,15 @@ export const currencies = [
 
 
 export const notifications = [
-{ id: 1 , text: "USD rose above 95₽" },
-{ id: 2 , text: "EUR fell below 100₽" },
-{ id: 3, text: "BTC broke through $70,000" },
-{ id: 4 , text: "CNY reached 13₽" },
-{ id: 5, text: "Gold hit a new high of $2,400" },
-{ id: 6, text: "Oil dropped below $80 per barrel" },
-{ id: 7, text: "ETH climbed above $3,500" },
-{ id: 8, text: "S&P 500 closed above 5,200" },
-{ id: 9, text: "Natural gas fell below $1.80" },
-{ id: 10, text: "Silver rose above $28" },
-{ id: 11, text: "Nikkei 225 surpassed 40,000" }
+{ id: 1 , text: "USD rose above 95₽" , isRead: false },
+{ id: 2, text: "EUR fell below 100₽", isRead: false },
+{ id: 3, text: "BTC broke through $70,000", isRead: false },
+{ id: 4, text: "CNY reached 13₽", isRead: false },
+{ id: 5, text: "Gold hit a new high of $2,400", isRead: false },
+{ id: 6, text: "Oil dropped below $80 per barrel", isRead: false },
+{ id: 7, text: "ETH climbed above $3,500", isRead: false },
+{ id: 8, text: "S&P 500 closed above 5,200", isRead: false },
+{ id: 9, text: "Natural gas fell below $1.80", isRead: false },
+{ id: 10, text: "Silver rose above $28", isRead: false },
+{ id: 11, text: "Nikkei 225 surpassed 40,000", isRead: false }
 ];
-
-
-/* { id: 1 , text: "USD rose above 95₽" },
-{ id: 2 , text: "EUR fell below 100₽" },
-{ id: 3, text: "BTC broke through $70,000" },
-{ id: 4 , text: "CNY reached 13₽" },
-{ id: 5, text: "Gold hit a new high of $2,400" },
-{ id: 6, text: "Oil dropped below $80 per barrel" },
-{ id: 7, text: "ETH climbed above $3,500" },
-{ id: 8, text: "S&P 500 closed above 5,200" },
-{ id: 9, text: "Natural gas fell below $1.80" },
-{ id: 10, text: "Silver rose above $28" },
-{ id: 11, text: "Nikkei 225 surpassed 40,000" }*/

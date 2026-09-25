@@ -32,6 +32,7 @@ const Converter = () => {
                 currencies={currencies}
                 value={to}
                 onChange={setTo}
+                readOnly
                 />
                 <span></span> 
             </div>

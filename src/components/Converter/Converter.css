@@ -132,7 +132,7 @@ list-style: none;
 opacity: 0;
   transform: translateY(-3px);
   pointer-events: none;   
-
+    box-shadow: 0 0 8px rgba(140, 140, 140, 0.4);
     transition: opacity 0.1s ease, transform 0.1s ease;
 }
 

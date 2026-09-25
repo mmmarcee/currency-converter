@@ -7,7 +7,7 @@ import { useState, useRef ,useEffect } from 'react';
 
 
 
-const CurrencySelect = () => {
+const CurrencySelect = ({ readOnly = false, currencies, value, onChange, ...rest }) => {
 
 const [open , setOpen ] = useState(false)
 
@@ -31,7 +31,7 @@ useEffect(() => {
 
 
     return(
-         <div className='currencyRow' ref={rowRef}><span className='countrySpan' onClick={() => setOpen(!open)}><img src={selected.img} alt="country" className='countryImage' draggable={false}/><span className='currencyName'>{selected.code}</span><div className={`down-div ${open ? 'open' : ''}`} ><img src={down} alt='down' className='downImg'/></div></span> <input type="text" className='Inputs' /><ul className= {`currencyList ${open ? 'open' : ''}`}>
+         <div className='currencyRow' ref={rowRef}><span className='countrySpan' onClick={() => setOpen(!open)}><img src={selected.img} alt="country" className='countryImage' draggable={false}/><span className='currencyName'>{selected.code}</span><div className={`down-div ${open ? 'open' : ''}`} ><img src={down} alt='down' draggable={false} className='downImg'/></div></span> <input type="text" className='Inputs' readOnly={readOnly} {...rest} /><ul className= {`currencyList ${open ? 'open' : ''}`}>
             {currencies.map((u) => (
             <li key={u.code}
           className="currencyItem"
