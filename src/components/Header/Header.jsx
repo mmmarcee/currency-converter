@@ -1,10 +1,11 @@
-import down from "../../assets/Header/keyboard_arrow_down_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+
 import logo from "../../assets/Header/logo.svg"
 import './Header.css'
 import HeaderButtons from "./HeaderButtons.jsx"
 import HeaderIndex from "./HeaderIndex.jsx"
 import HeaderRoad from './HeaderRoad.jsx'
 import Notifications from './Notifications.jsx'
+import Profile from './Profile.jsx'
 
 import { useState, useEffect } from 'react';
 
@@ -36,9 +37,7 @@ const [now, setNow] = useState(new Date());
              <span className="Divider1"/>
                 <span className="Time_now">{now.toLocaleTimeString()}</span>
             <Notifications/>
-                <div className="Profile_div">
-                    <span className="Avatar"/><span className="Online"/> <img src={down} alt="svgfile" className="down"></img>
-                </div>
+                <Profile/>
 
              </div>
 
