@@ -1,0 +1,102 @@
+.Chart-container {
+    overflow: hidden;
+  width: 100%;
+  max-width: 625px;
+  min-height: 500px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: rgb(33, 33, 33);
+  border-radius: 12px;
+  font-family: "Roboto", sans-serif;
+}
+.Chart-title{
+    color: aliceblue;
+}
+
+.Chart-currencies {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.Chart-currency-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.Chart-currency-btn:hover {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.Chart-currency-btn.active {
+  background-color: #4caf50;
+  border-color: #4caf50;
+  color: white;
+}
+
+.Chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.Chart-period-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+.Chart-periods {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.Chart-period-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.Chart-period-btn:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.Chart-period-btn.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.Chart-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: rgb(193, 193, 193);
+  font-size: 30px;
+}
+
+.charts-list{
+ width: 100%;            
+    max-width: 1420px; 
+    min-width: 1420px;
+    background-color: rgb(40, 40, 40);
+    margin: 30px auto 0;
+    display: grid; grid-template-columns: repeat(2, 1fr); 
+}
+
