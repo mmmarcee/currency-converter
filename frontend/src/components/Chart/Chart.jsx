@@ -135,14 +135,14 @@ const Chart = ({ defaultCurrency = 'USD'}) => {
                     <AreaChart data={allData[currency][period]}>
                         <defs>
                             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#4caf50" stopOpacity={0.4} />
-                                <stop offset="95%" stopColor="#4caf50" stopOpacity={0} />
+                                <stop offset="5%" stopColor="#ababab" stopOpacity={0.4} />
+                                <stop offset="95%" stopColor="#ababab" stopOpacity={0} />
                             </linearGradient>
                         </defs>
                         <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                         <XAxis dataKey="date" />
                         <Tooltip
-                        formatter={(value) => [value.toFixed(currency === 'JPY' ? 4 : 2) + ' ₽', 'Курс']}
+                        formatter={(value) => [value.toFixed(currency === 'JPY' ? 4 : 2) + ' ₽', 'Rate']}
                         labelFormatter={(label) => `Date: ${label}`}
                             contentStyle={{
                                 background: '#2a2a2a',
@@ -153,11 +153,11 @@ const Chart = ({ defaultCurrency = 'USD'}) => {
                         <YAxis domain={['auto', 'auto']}/>
                         <Area
                             dataKey="value"
-                            stroke="#4caf50"
+                            stroke="#ababab"
                             strokeWidth={2}
                             fill="url(#colorValue)"
                              isAnimationActive={isVisible}   
-                            animationDuration={800}         
+                            animationDuration={1300}         
                              animationEasing="ease-out" />
                     </AreaChart>
                 </ResponsiveContainer>)}
