@@ -1,7 +1,7 @@
 
 import './Converter.css'
 import down from "../../assets/Converter/arrow.svg"
-import {currencies} from '../Arrays.jsx'
+
 import { useState, useRef ,useEffect } from 'react';
 
 
