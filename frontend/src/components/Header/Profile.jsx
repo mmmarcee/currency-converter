@@ -7,9 +7,7 @@ import {currentUser} from '../Arrays.jsx';
 const Profile = () => {
 
  const [open , setOpen] = useState(false)
-    function copyText(text) {
-  navigator.clipboard.writeText(text);
-}
+
 
  const rowRef = useRef(null);
 
@@ -31,7 +29,7 @@ const Profile = () => {
          
          <div className={`profile-list ${open ? 'open' : ''}` }>
             <div className="Avatar-list"></div>
-           <div className="userId-div" onClick={copyText(currentUser.id)}> <div className="userId">{currentUser.id}</div><span id="copy" className="material-symbols-outlined">content_copy</span></div>
+           <div className="userId-div" > <div className="userId">{currentUser.id}</div><span id="copy" className="material-symbols-outlined">content_copy</span></div>
            <div className="username" >{currentUser.username}</div>
            <div className="email-div">
             <div className="emailIcon"><span className="material-symbols-outlined" id="emailIco">alternate_email</span></div>

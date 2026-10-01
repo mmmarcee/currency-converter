@@ -34,3 +34,15 @@ backend/obj/
 .env
 .env.local
 .env.*.local
+
+# ==== Python vitrual environments =====
+venv/
+**/venv/
+.venv/
+env/
+.env.*
+
+/Tests/venv/
+# ===== Python cache =====
+__pycache__/
+*.py[cod]
