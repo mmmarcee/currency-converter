@@ -32,8 +32,6 @@ backend/obj/
 
 # ===== Env =====
 .env
-.env.local
-.env.*.local
 
 # ==== Python vitrual environments =====
 venv/
