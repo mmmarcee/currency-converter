@@ -42,8 +42,8 @@ venv/
 env/
 .env.*
 
-Tests/.venv/
-Tests/venv/
+/Tests/.venv/
+/Tests/venv/
 
 # ===== Python cache =====
 __pycache__/
