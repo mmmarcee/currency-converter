@@ -43,6 +43,8 @@ env/
 .env.*
 
 Tests/.venv/
+Tests/venv/
+
 # ===== Python cache =====
 __pycache__/
 *.py[cod]
