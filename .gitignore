@@ -1,3 +1,17 @@
+#Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+# Playwright
+playwright-report/
+test-results/
+blob-reports/
+playwright/.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
 # ===== Env =====
 .env
 
