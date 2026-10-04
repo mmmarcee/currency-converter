@@ -1,16 +1,24 @@
-#NODE
+# ==== NODE ====
 node_modules/
-#Pytest
+# ==== Pytest ====
 .pytest_cache/
 .coverage
 htmlcov/
-# Playwright
+# ==== Playwright ====
 playwright-report/
 test-results/
 blob-report/
 playwright/.cache/
 
-# OS
+# ==== Allure ====
+allure-report/
+allure-results/
+
+# ==== temporary files ====
+*.tmp
+*.bak
+#  ==== OS ====
+
 .DS_Store
 Thumbs.db
 
