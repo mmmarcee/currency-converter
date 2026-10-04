@@ -1,3 +1,5 @@
+#NODE
+node_modules/
 #Pytest
 .pytest_cache/
 .coverage
@@ -5,15 +7,12 @@ htmlcov/
 # Playwright
 playwright-report/
 test-results/
-blob-reports/
+blob-report/
 playwright/.cache/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# ===== Env =====
-.env
 
 # ==== Python vitrual environments =====
 venv/
@@ -21,7 +20,7 @@ venv/
 .venv/
 env/
 .env.*
-
+.env
 /Tests/.venv/
 /Tests/venv/
 
