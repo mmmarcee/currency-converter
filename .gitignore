@@ -1,3 +1,20 @@
+# ===== Env =====
+.env
+
+# ==== Python vitrual environments =====
+venv/
+**/venv/
+.venv/
+env/
+.env.*
+
+/Tests/.venv/
+/Tests/venv/
+
+# ===== Python cache =====
+__pycache__/
+*.py[cod]
+
 # ===== Logs =====
 logs
 *.log
@@ -29,20 +46,3 @@ backend/obj/
 *.njsproj
 *.sln
 *.sw?
-
-# ===== Env =====
-.env
-
-# ==== Python vitrual environments =====
-venv/
-**/venv/
-.venv/
-env/
-.env.*
-
-/Tests/.venv/
-/Tests/venv/
-
-# ===== Python cache =====
-__pycache__/
-*.py[cod]
