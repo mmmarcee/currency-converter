@@ -1,5 +1,6 @@
 # ==== NODE ====
 node_modules/
+npm-debug.log
 # ==== Pytest ====
 .pytest_cache/
 .coverage
