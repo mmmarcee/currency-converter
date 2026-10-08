@@ -8,6 +8,7 @@ import eu from "../assets/Converter/eu.png"
 import nz from "../assets/Converter/nz.png"
 import ch from "../assets/Converter/ch.png"
 import jp from "../assets/Converter/jp.png"
+import kz from "../assets/Converter/kz.png"
 
 
 
@@ -23,6 +24,7 @@ export const currencies = [
   { code: 'NZD', img: nz, symbol: 'N$' },
   { code: 'CHF', img: ch, symbol: 'Fr' },
   { code: 'JPY', img: jp, symbol: '¥' },
+  { code: 'KZT', img: kz, symbol: '₸' }
 ];
 
 

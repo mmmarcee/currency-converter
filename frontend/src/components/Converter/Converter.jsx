@@ -72,7 +72,7 @@ const convert = async () => {
                 currencies={currencies}
                 value={to}
                 onChange={setTo}
-                amount={result}
+                amount={result != null ? Number(result).toLocaleString('ru-RU') : ''}
                 readOnly
                 />
 

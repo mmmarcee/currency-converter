@@ -1,5 +1,5 @@
 .Chart-container {
-    overflow: hidden;
+  overflow: hidden;
   width: 100%;
   max-width: 625px;
   min-height: 500px;
@@ -8,6 +8,9 @@
   background-color: rgb(33, 33, 33);
   border-radius: 12px;
   font-family: "Roboto", sans-serif;
+   user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 .Chart-title{
     color: aliceblue;
@@ -17,7 +20,32 @@
   display: flex;
   gap: 6px;
   margin-bottom: 16px;
+    overflow-x: auto;
+  overflow-y: hidden;
 }
+
+.Chart-currencies::-webkit-scrollbar {
+  width: 2px;             
+  height: 4px;
+}
+
+
+.Chart-currencies::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+
+.Chart-currencies::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+}
+
+
+.Chart-currencies::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
 
 .Chart-currency-btn {
   background: none;
