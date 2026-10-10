@@ -1,3 +1,42 @@
+# ==== NODE ====
+node_modules/
+npm-debug.log
+# ==== Pytest ====
+.pytest_cache/
+.coverage
+htmlcov/
+# ==== Playwright ====
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+
+# ==== Allure ====
+allure-report/
+allure-results/
+
+# ==== temporary files ====
+*.tmp
+*.bak
+#  ==== OS ====
+
+.DS_Store
+Thumbs.db
+
+# ==== Python vitrual environments =====
+venv/
+**/venv/
+.venv/
+env/
+.env.*
+.env
+/Tests/.venv/
+/Tests/venv/
+
+# ===== Python cache =====
+__pycache__/
+*.py[cod]
+
 # ===== Logs =====
 logs
 *.log
@@ -29,20 +68,3 @@ backend/obj/
 *.njsproj
 *.sln
 *.sw?
-
-# ===== Env =====
-.env
-.env.local
-.env.*.local
-
-# ==== Python vitrual environments =====
-venv/
-**/venv/
-.venv/
-env/
-.env.*
-
-/Tests/venv/
-# ===== Python cache =====
-__pycache__/
-*.py[cod]

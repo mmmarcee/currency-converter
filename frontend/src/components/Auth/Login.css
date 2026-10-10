@@ -1,6 +1,6 @@
-.register-div{
+.login-div{
 width: 500px;
-height: 640px;
+height: 560px;
 background-color: rgb(36, 36, 36);
 border-radius: 15px;
 display: flex;
@@ -9,33 +9,23 @@ align-items: center;
 flex-direction: column;
 color: white;
 padding: 30px;
+gap: 30px;
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
 }
 
-.logo{
-    width: 120px;
-  height: 120px;
-  object-fit: contain;
-  display: flex;  
-  filter: invert(1); 
-  margin: 10px;
-}
-
-
-.input-div{
+.input-div-login{
     display: flex;
     align-items: stretch; 
  
 }
 
-
-.label{
+.label-login{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 35px;
+    height: 45px;
       background-color: white;
       padding: 0;
       border: none;
@@ -43,28 +33,21 @@ padding: 30px;
       border-radius: 15px 0px 0px 15px;
 }
 
-#label{
+#labelLogin{
     color: black;
-    
+    font-size: 30px;
 }
 
-.label-div{
-     width: 400px;
-     text-align: left;
-    font-size: 20px;
-    margin-bottom: 4px;
-    margin-top: 20px;
-}
-
-.input-register{
+.input-login{
     background-color: white;
     outline: none;
     border: none;
-    height: 35px;
+    height: 45px;
     width: 360px;
     border-radius: 0px 15px 15px 0px;
-    font-size: 20px;
+    font-size: 30px;
 }
+
 
 .divider{
 display: flex;
@@ -73,7 +56,7 @@ display: flex;
   color: #888;
   font-size: 14px;
    width: 400px; 
-   margin: 20px;
+   margin: 5px;
 }
 
 .divider::before,
@@ -89,7 +72,6 @@ display: flex;
 
 
 .Google{
-    margin-top: 14px;
     display: flex;
     width: 300px;
     height: 38px;
@@ -108,7 +90,8 @@ display: flex;
     height: 35px;
 }
 
-.LogUp{
+
+.LogIn{
     cursor: pointer;
      display: flex;
     width: 200px;
@@ -119,5 +102,5 @@ display: flex;
     font-size: 20px;
     border: none;
     border-radius: 10px;
-    margin: 17px;
+    margin-top: 5px;
 }

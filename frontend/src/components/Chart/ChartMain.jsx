@@ -1,7 +1,7 @@
 import './Chart.css';
 import Chart from './Chart.jsx';
 
-const CURRENCIES = ['USD', 'EUR', 'GBP', 'CNY','NZD','JPY'];
+const CURRENCIES = ['USD', 'EUR', 'GBP', 'CNY','NZD','JPY', 'KZT'];
 
 const MainChart = () => {
     return (

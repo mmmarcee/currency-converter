@@ -112,6 +112,11 @@ const Chart = ({ defaultCurrency = 'USD'}) => {
                     onClick={() => setCurrency('CAD')}>
                     CAD
                 </button>
+                <button
+                    className={`Chart-currency-btn ${currency === 'KZT' ? 'active' : ''}`}
+                    onClick={() => setCurrency('KZT')}>
+                    KZT
+                </button>
             </div>
             <div className="Chart-periods">
                 {['1W', '1M', '1Y', '10Y'].map((p) => (

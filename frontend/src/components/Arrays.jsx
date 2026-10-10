@@ -8,21 +8,23 @@ import eu from "../assets/Converter/eu.png"
 import nz from "../assets/Converter/nz.png"
 import ch from "../assets/Converter/ch.png"
 import jp from "../assets/Converter/jp.png"
+import kz from "../assets/Converter/kz.png"
 
 
 
 
 export const currencies = [
-{ code: 'USD', img: usa },
-{ code: 'RUB', img: ru },
-{ code: 'AUD', img: au },
-{ code: 'GBP', img: gb },
-{ code: 'CAD', img: ca },
-{ code: 'CNY', img: cn },
-{ code: 'EUR', img: eu },
-{ code: 'NZD', img: nz },
-{ code: 'CHF', img: ch },
-{ code: 'JPY', img: jp },
+{ code: 'USD', img: usa, symbol: '$' },
+  { code: 'RUB', img: ru, symbol: '₽' },
+  { code: 'AUD', img: au, symbol: 'A$' },
+  { code: 'GBP', img: gb, symbol: '£' },
+  { code: 'CAD', img: ca, symbol: 'C$' },
+  { code: 'CNY', img: cn, symbol: '¥' },
+  { code: 'EUR', img: eu, symbol: '€' },
+  { code: 'NZD', img: nz, symbol: 'N$' },
+  { code: 'CHF', img: ch, symbol: 'Fr' },
+  { code: 'JPY', img: jp, symbol: '¥' },
+  { code: 'KZT', img: kz, symbol: '₸' }
 ];
 
 

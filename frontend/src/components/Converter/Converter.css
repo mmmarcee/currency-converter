@@ -12,7 +12,10 @@
     justify-content: center;
     padding: 0px;
     align-items: center;
-    margin-top: 130px;
+    margin-top: 130px;   
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 
@@ -31,6 +34,7 @@
 }
 .output{
     margin: 0px;
+    
 }
 .swapDiv{
     display: flex;
@@ -57,31 +61,35 @@
     display: flex;
   align-items: stretch;    
   height: 50px;                 
-  
   position: relative;
 }
 
 .Inputs {
     background-color: rgb(140, 140, 140);
-    width: 1100px;
+    width: 1050px;
     height: 50px;
     outline: none;
     font-size: 30px;
     color: white;
     border: none;
-    border-radius: 0px 10px 0px 0px;
+    padding-left: 12px;
 }
 
 
 .countrySpan{
-     border-radius: 10px 0px 0px 0px;
+     border-radius: 10px 0px 0px 10px;
     display: inline-flex; 
         align-items: center;    
   justify-content: center;
   background-color: rgb(140, 140, 140);
-    width: 120px;
+    width: 125px;
     height: 50px;
-    
+    border-right: 2px solid rgb(109, 109, 109);
+
+}
+
+.countrySpan.active{
+     border-radius: 10px 0px 0px 0px;
 }
 
 
@@ -103,7 +111,7 @@
     height: 50px;
     width: 50px;
     cursor: pointer;
-    right: -10px;                    
+    right: -5px;                    
   top: 50%;                   
   transform: translateY(-50%);
 }
@@ -139,7 +147,7 @@ opacity: 0;
 }
 
 .currencyList::-webkit-scrollbar {
-  width: 6px;             
+  width: 3px;             
 }
 
 
@@ -176,4 +184,38 @@ opacity: 0;
   -ms-user-select: none;
    -webkit-user-drag: none;
   cursor: pointer;
+}
+
+
+.button-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.convert-button{
+    width: 200px;
+    height: 35px;
+    background-color: rgb(175, 175, 175);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 23px;
+    color: rgb(53, 53, 53);
+}
+
+.currency-symbol{
+     border-radius: 0px 10px 10px 0px;
+    background-color: rgb(140, 140, 140);
+    width: 50px;
+    height: 50px;
+    font-size: 34px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }

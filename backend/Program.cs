@@ -29,9 +29,15 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+<<<<<<< HEAD
 //app.UseHttpsRedirection();
 
 app.UseCors("AllowFrontend");
+=======
+app.UseCors("AllowFrontend");
+
+// app.UseHttpsRedirection();
+>>>>>>> 6f4bb604e93f226c5c61cf80df51bded1ba37fa2
 
 app.UseAuthorization();
 
