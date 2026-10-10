@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class Class1
+namespace CurrencyConverter.Models;
+
+public class ApplicationUser : IdentityUser
 {
-	public Class1()
-	{
-	}
+   
 }

@@ -14,7 +14,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-/
+
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     
@@ -83,7 +83,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-// app.UseHttpsRedirection();  
+ app.UseHttpsRedirection();  
 app.UseCors("AllowFrontend");
 
 app.UseAuthentication();  

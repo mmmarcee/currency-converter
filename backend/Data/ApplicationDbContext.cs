@@ -1,8 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using CurrencyConverter.Models;
 
-public class Class1
+namespace CurrencyConverter.Data;
+
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
-	public Class1()
-	{
-	}
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+    {
+    }
 }
