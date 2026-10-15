@@ -61,6 +61,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddHttpClient<FrankfurterService>();
+builder.Services.AddScoped<TokenService>();
 builder.Services.AddOpenApi();
 
 builder.Services.AddCors(options =>
@@ -82,8 +83,7 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-
- app.UseHttpsRedirection();  
+//app.UseHttpsRedirection();  
 app.UseCors("AllowFrontend");
 
 app.UseAuthentication();  
