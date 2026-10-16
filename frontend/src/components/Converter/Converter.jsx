@@ -1,8 +1,7 @@
 import './Converter.css'
-import { useState} from 'react';
 import CurrencySelect from './CurrencySelect.jsx'
 import {currencies} from '../Arrays.jsx'
-
+import { useState, useEffect } from 'react';
 const Converter = () => {
   
   const [from, setFrom] = useState(currencies[0]);
@@ -11,8 +10,17 @@ const Converter = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+
+ const swap = () => {
+    setTo(from)
+    setFrom(to)
+  }
+
    
 const convert = async () => {
+ 
+  
     const trimmed = amount.trim()
     if (!trimmed){
         setError("Error")
@@ -35,7 +43,7 @@ const convert = async () => {
     const res = await fetch(
       `http://localhost:5139/api/currency/convert?from=${from.code}&to=${to.code}&amount=${trimmed}`
     );
-    if (!res.ok) throw new Error('Ошибка сервера');
+    if (!res.ok) throw new Error('Server error');
     const data = await res.json();
     setResult(data.result);
   } catch (err) {
@@ -45,7 +53,12 @@ const convert = async () => {
   }
 
 };
-  
+   useEffect(() => {
+  if (amount && from.code && to.code) {
+    convert();
+  }
+}, [from, to]);
+ 
     return(
         <div className="ConverterBody">
             <div className='Converter'>
@@ -62,7 +75,7 @@ const convert = async () => {
 
             </div>
             <div className='swapDiv'>
-        <span className='swapImg'/>
+        <span className='swapImg' onClick={swap}/>
             </div>
 
              <div className='output'>

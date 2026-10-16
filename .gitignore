@@ -68,3 +68,5 @@ backend/obj/
 *.njsproj
 *.sln
 *.sw?
+# ===== Local secrets =====
+backend/appsettings.Development.json
