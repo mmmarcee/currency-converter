@@ -10,7 +10,7 @@ const Chart = ({ defaultCurrency = 'USD'}) => {
 
 
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null); // TODO
+    const [error, setError] = useState(null);
 
     const [isVisible, setIsVisible] = useState(false);
     const [loaded, setLoaded] = useState(false);

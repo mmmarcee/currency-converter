@@ -1,0 +1,97 @@
+.header-settings{
+    user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+    justify-content: space-between;
+   height: 71px;
+  padding: 0 16px;
+  background-color: rgb(60, 60, 60);
+}
+
+.header-settings-left,
+.header-settings-center,
+.header-settings-right {
+  flex: 1;                   
+  display: flex;
+  align-items: center;
+}
+
+.header-settings-left {
+  justify-content: flex-start;
+}
+
+.header-settings-center {
+  justify-content: center;  
+  gap: 8px;
+}
+
+.header-settings-right {
+  justify-content: flex-end;
+}
+
+.logo-div-set{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+      text-decoration: none;
+}
+
+#backIco{
+    font-size: 40px;
+    color: white;
+}
+
+.logo-name{
+    font-size: 37px;
+}
+
+
+.btns-div{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(123, 123, 123);
+    width: 209px;
+    height: 56px;
+    border-radius: 15px;
+    border: none;
+}
+
+.set-header-bts{
+    background-color: rgb(0, 0, 0, 0);
+    width: 50%;
+    height: 100%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#btns-span{
+    font-size: 50px;
+}
+
+
+.slider{
+    width: 51%;
+    height: 100%;
+    background-color: rgb(39, 39, 39);
+    border-radius: 15px;
+    position: absolute;
+    left: -1%;
+     transition: transform 0.3s ease-in-out;
+}
+
+
+
+.slider.animateRight{
+transform: translateX(101%);
+}
+
+
