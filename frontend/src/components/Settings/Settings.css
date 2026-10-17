@@ -1,0 +1,64 @@
+.profile-set-body{
+    margin-top: 120px;
+    background-color: rgb(60, 60, 60);
+    width: 100vw;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.avatar{
+    height: 380px;
+    width: 380px;
+    background-color: rgb(179, 178, 178);
+    border-radius: 999px;
+}
+
+.set-inputs-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+    margin-bottom: 60px;
+}
+
+.set-input-case{
+    width: 1035px;
+    height: 40px;
+    background-color: rgb(217, 217, 217);
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    padding-left: 15px;
+}
+
+.set-divider{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.prefix{
+    margin-right: 10px;
+}
+
+.set-input{
+    height: 40px;
+    width: 100%;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: rgb(45, 95, 139, 0);
+    font-weight: normal;
+    color: rgb(50, 50, 50);
+}
+
+.set-input-ico{
+    display: flex;
+    align-items: center;
+}

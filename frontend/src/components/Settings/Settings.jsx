@@ -1,7 +1,9 @@
+import SettingsProfile from './SettingsProfile.jsx'
+
 const Settings = () => {
   return (
     <div>
-      <h1>Настройки</h1>
+      <SettingsProfile/>
     </div>
   );
 };
