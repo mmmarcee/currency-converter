@@ -25,7 +25,6 @@ def run(playwright: Playwright) -> None:
             page.get_by_role("img", name="down").nth(1).click()
             page.get_by_role("listitem").filter(has_text= s).nth(1).click()
             page.get_by_text(s).nth(1).click()
-            
             page.get_by_role("button", name="Convert", exact=True).click()
     
     context.close()
