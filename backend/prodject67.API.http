@@ -9,8 +9,8 @@ POST http://localhost:5139/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "art9m12+test2@gmail.com",
-  "password": "Test1234"
+  "email": "twisster15@gmail.com",
+  "password": "Test1235"
 }
 
 ### Вход

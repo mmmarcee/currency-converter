@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0;
   padding: 0;
@@ -7,13 +9,14 @@
 html, body, #root {
   width: 100%;
   min-height: 100%;
-  font-family: "Roboto";
+   font-family: var(--app-font, "Roboto", sans-serif);
 }
 
 body {
-  
   margin: 0;
   background-color: rgb(36, 36, 36);
+  line-height: 1.5;     
+  letter-spacing: normal;
 }
 header{
   z-index: 100;
@@ -26,8 +29,12 @@ flex-direction: column;
   align-items: stretch;
   position: fixed;
   top: 0;
+  flex-shrink: 0;
 }
 
+button, input, select, textarea {
+  font-family: inherit;
+}
 
 
 .Logo-div {
@@ -58,7 +65,7 @@ color: #ffffff;
   line-height: 1;
   letter-spacing: 0.5px;
   white-space: nowrap;
-  font-family: "Roboto";
+
   margin-right: 5px;
    user-select: none;
   -webkit-user-select: none;
@@ -93,7 +100,6 @@ width: 2px;
 
 .HeaderButton{
     cursor: pointer;
-    font-family: "Roboto";
     margin: 5px;
     color: white;
      font-size: 30px;
@@ -159,6 +165,7 @@ font-size: 14px;
   margin-right: 15px;
   font-size: 25px;
   color: white;
+   min-width: 6ch;
 }
 
 
@@ -332,7 +339,7 @@ position: relative;
 
 .Notifications-text{
   color: rgb(232, 232, 232);
-  font-family: "Roboto";
+
 }
 
 

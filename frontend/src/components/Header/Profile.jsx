@@ -36,8 +36,8 @@ const Profile = () => {
            <div className="email-info"> <div className="email-label">Email</div><div>{currentUser.email}</div></div>
            </div>
            <div className="line"/>
-           <a href="#" className="account-btn"><span className="material-symbols-outlined">account_circle</span><span className="account-label">Account Info</span></a>
-            <a href="#" className="account-btn"><span className="material-symbols-outlined">logout</span><span className="account-label">Log out</span></a>
+           <a href="settings" className="account-btn"><span className="material-symbols-outlined">account_circle</span><span className="account-label">Account Info</span></a>
+            <a href="login" className="account-btn"><span className="material-symbols-outlined">logout</span><span className="account-label">Log out</span></a>
         </div>
 
          </div>
