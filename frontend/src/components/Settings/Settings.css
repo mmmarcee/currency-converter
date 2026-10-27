@@ -209,3 +209,57 @@ flex-direction: row;
     font-size: 16px;
     right: -130px;
 }
+
+
+.set-btn-opt-div{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height:395px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.set-btn-opt-div::-webkit-scrollbar {
+  width: 3px;             
+}
+
+
+.set-btn-opt-divt::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+
+.set-btn-opt-div::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+}
+
+
+.set-btn-opt-div::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+
+
+.set-btn-opt{
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 4px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgb(89, 89, 89);
+    font-size: 30px;
+}
+
+.set-btn-opt.active {
+    border: 2px solid rgb(31, 31, 31);
+    border-right: 3px solid rgb(31, 31, 31);
+    border-left: 3px solid rgb(31, 31, 31);
+}

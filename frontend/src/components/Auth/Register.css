@@ -12,6 +12,7 @@ padding: 30px;
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  font-family: "Roboto", sans-serif ;
 }
 
 .logo{

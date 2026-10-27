@@ -1,20 +1,21 @@
-import { useState , useRef } from 'react';
-
+import { useState , useRef, useEffect } from 'react';
+import {currencies} from '../Arrays.jsx'
 const SettingsOptions = () => {
 
 
     const fonts = [
   { name: 'Roboto', css: '"Roboto", sans-serif' },
-  { name: 'IBM', css: '"IBM Plex Serif", serif' },
-  { name: 'HennyPenny', css: '"Henny Penny", system-ui' },
   { name: 'Chewy', css: '"Chewy", system-ui' },
   { name: 'Asimovian', css: '"Asimovian", sans-serif' },
-  { name: 'Eater', css: '"Eater", serif' }
+  { name: 'Ubuntu', css: '"Ubuntu Condensed", sans-serif' }
 ]
 
 const [font , setFont] = useState('Roboto')
 
 const [info , setInfo] = useState(false)
+
+const [choose , setChoose] = useState(null)
+
 
 return(
     <div className="options-set-body">
@@ -30,7 +31,8 @@ return(
                 </div>
                 <span className="option-title">Fonts</span>
                 <ul> {fonts.map(({name , css}) => (
-                    <li className="font-choose" key={name} style={{fontFamily: css}} onClick={() => {document.documentElement.style.setProperty('--app-font', css); setFont(name);}}>FiatFlux{font === name && <span className="material-symbols-outlined" id="font-choose-ico">
+                    <li className="font-choose" key={name} style={{fontFamily: css}} onClick={() => {document.documentElement.style.setProperty('--app-font', css);  localStorage.setItem('app-font-name', name);
+  localStorage.setItem('app-font-css', css); setFont(name); }}>FiatFlux{font === name && <span className="material-symbols-outlined" id="font-choose-ico">
 check
 </span>}</li>
                 ))}</ul>
@@ -45,6 +47,14 @@ check
                 <span className="option-title">Priorities <span style={{cursor: 'pointer'}} className="material-symbols-outlined" onClick={() => setInfo(!info)}>
 info
 </span> {info === true && <span className='info'>Choose currencies that u want to see in notifications</span>} </span>
+
+            <div className='set-btn-opt-div'> 
+                {currencies.map(({code , img}) => (<button onClick={() => setChoose(code)} key={code} className={`set-btn-opt ${choose === code ? 'active' : ''}`}>
+                    <img src={img} alt={img}></img>
+                    {code}
+                    </button>
+                )) }
+            </div>
 
             </div>
           
