@@ -2,11 +2,20 @@
 display: flex;
 flex-direction: column;
 align-items: center;
+position: relative;
+}
+
+.scroll-Anchor{
+position: absolute;
+width: 20px;
+height: 20px;
+top: -75px;
+z-index: 100;
 }
 
 .profile-set-body{
     margin-top: 120px;
-    background-color: rgb(60, 60, 60);
+    background-color: var(--set-body);
     width: 99vw;
     height: 500px;
     display: flex;
@@ -111,7 +120,7 @@ opacity: 1;
  
 
 .options-set-body{
-    background-color: rgb(60, 60, 60);
+    background-color: var(--set-body);
     width: 1200px;
     height: 1500px;
     margin-top: 200px;
@@ -120,6 +129,7 @@ opacity: 1;
      user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  position: relative;
 }
 
 .option-block{
@@ -142,13 +152,13 @@ flex-direction: row;
 }
 
 .option-title{
-    color: white;
+    color: var(--fontColor);
     font-size: 40px;
     position: relative;
 }
 
 .theme-choose-div{
-    background-color: rgb(102, 102, 102);
+    background-color: var(--setBtn);
     width: 120px;
     border-radius: 15px;
     height: 55px;
@@ -185,7 +195,7 @@ flex-direction: row;
     text-decoration: none;
     color: white;
     font-size: 30px;
-    background-color: rgb(89, 89, 89);
+    background-color: var(--setBtn);
     border-radius: 15px;
     margin-bottom: 10px;
     padding: 4px;
@@ -233,13 +243,13 @@ flex-direction: row;
 
 
 .set-btn-opt-div::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--setBtn);
   border-radius: 3px;
 }
 
 
 .set-btn-opt-div::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--setBtn);
 }
 
 
@@ -254,7 +264,7 @@ flex-direction: row;
     align-items: center;
     justify-content: center;
     color: white;
-    background-color: rgb(89, 89, 89);
+    background-color: var(--setBtn);
     font-size: 30px;
 }
 

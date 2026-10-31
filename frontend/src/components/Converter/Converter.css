@@ -6,7 +6,7 @@
     max-width: 1420px; 
     min-width: 1420px;
     height: 400px;
-    background-color: rgb(40, 40, 40);
+    background-color: var(--bgBody);
     margin: 30px auto 0;
     display: flex;
     justify-content: center;
@@ -16,8 +16,16 @@
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  position: relative;
 }
 
+.main-scroll-anchor{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -120px;
+  z-index: 101;
+}
 
 .Converter{
     flex-direction: column;
@@ -66,12 +74,12 @@
 }
 
 .Inputs {
-    background-color: rgb(140, 140, 140);
+    background-color: var(--input-color);
     width: 1050px;
     height: 50px;
     outline: none;
     font-size: 30px;
-    color: white;
+    color: rgb(232, 232, 232);
     border: none;
     padding-left: 12px;
 }
@@ -82,7 +90,7 @@
     display: inline-flex; 
         align-items: center;    
   justify-content: center;
-  background-color: rgb(140, 140, 140);
+  background-color: var(--input-color);
     width: 125px;
     height: 50px;
     border-right: 2px solid rgb(109, 109, 109);
@@ -100,7 +108,7 @@
 }
 
 .currencyName{
-    color: rgb(204, 204, 204);
+    color: var(--inputFontColor);
     font-size: 30px;
     font-weight: 300;
 }
@@ -115,6 +123,7 @@
     right: -5px;                    
   top: 50%;                   
   transform: translateY(-50%);
+  color: var(--inputFontColor);
 }
 
 
@@ -132,7 +141,7 @@
 
 .currencyList{
     position: absolute;
-    background-color: rgb(140, 140, 140);;
+    background-color: var(--input-color);
     width: 120px;
     height: 100px;
     overflow-y: auto;     
@@ -208,15 +217,15 @@ opacity: 0;
 
 .currency-symbol{
      border-radius: 0px 10px 10px 0px;
-    background-color: rgb(140, 140, 140);
+    background-color: var(--input-color);
     width: 50px;
     height: 50px;
     font-size: 34px;
-    color: white;
+    color: var(--fontColor);
     display: flex;
     justify-content: center;
     align-items: center;
      user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-}
+} 

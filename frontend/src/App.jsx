@@ -17,6 +17,14 @@ function App() {
     }
   }, []);
 
+    useEffect(() => {
+    const savedTheme = localStorage.getItem('app-theme');
+   if (savedTheme === 'light') {
+      document.documentElement.classList.add('light');
+    }
+  }, []);
+
+
   return (
     <BrowserRouter>
       <Routes>

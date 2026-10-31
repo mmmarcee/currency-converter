@@ -5,7 +5,7 @@ const Settings = () => {
   return (
     <div className='settings-body'>
       <SettingsProfile/>
-      <SettingsOptions/>
+      <SettingsOptions />
     </div>
   );
 };

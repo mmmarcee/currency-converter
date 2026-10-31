@@ -1,7 +1,7 @@
 
 .SettingsLayout{
  min-height: 100vh;
-  background-color: rgb(36, 36, 36);
+  background-color: var(--bg);
   display: flex;
 
   justify-content: center;

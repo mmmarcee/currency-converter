@@ -7,6 +7,23 @@ import { useState } from 'react';
 
 const SettingsHeader = () => {
 
+
+const scrollToAccount = () => {
+  document.getElementById('accountBody')?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+  setAnimation('left');
+};
+
+const scrollToSettings = () => {
+  document.getElementById('optionsBody')?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+  setAnimation('right');
+};
+
     const [animation , setAnimation] = useState("left")
 
   return (
@@ -22,18 +39,18 @@ arrow_back
 
         <div className={ `slider ${ animation === "right" ? "animateRight" : ""}`} ></div>
 
-        <button className='set-header-bts' onClick={() => setAnimation("left")}><span className="material-symbols-outlined" id='btns-span'>
+        <button className='set-header-bts' onClick={scrollToAccount}><span className="material-symbols-outlined" id='btns-span'>
 person
 </span></button>
 
 
-        <button className='set-header-bts' onClick={() => setAnimation("right")}><span className="material-symbols-outlined" id='btns-span'>
+        <button className='set-header-bts' onClick={scrollToSettings}><span className="material-symbols-outlined" id='btns-span'>
 settings
 </span></button>
     </div>
 </div>
 
-     <div className="header-settings-right"></div>
+     <div className="header-settings-right"></div> 
    </header>
   );
 };
