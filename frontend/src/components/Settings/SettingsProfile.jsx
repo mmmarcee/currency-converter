@@ -7,8 +7,8 @@ const SettingsProfile = () => {
         fileInputRef.current?.click();
     };
   return (
-  <div className="profile-set-body">
-
+  <div className="profile-set-body" >
+    <div className='scroll-Anchor' id='accountBody'></div>
     <div className='avatar-container'>
         <div className='avatar'  onClick={handleAvatarClick}>
             <div className='avatar-hover' ><span className="material-symbols-outlined" id='photo-ico'>

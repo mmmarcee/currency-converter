@@ -1,6 +1,6 @@
 .AuthLayout {
   min-height: 100vh;
-  background-color: rgb(66, 66, 66);
+  background-color: var(--authBg);
   display: flex;
   align-items: center;
   justify-content: center;

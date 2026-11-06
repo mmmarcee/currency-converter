@@ -1,18 +1,19 @@
 .register-div{
-width: 500px;
-height: 640px;
-background-color: rgb(36, 36, 36);
+width: 550px;
+height: 690px;
+background-color: var(--authBg);
 border-radius: 15px;
 display: flex;
 padding: 10px;
 align-items: center;
 flex-direction: column;
-color: white;
+color: var(--fontColor);
 padding: 30px;
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   font-family: "Roboto", sans-serif ;
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .logo{
@@ -20,7 +21,7 @@ padding: 30px;
   height: 120px;
   object-fit: contain;
   display: flex;  
-  filter: invert(1); 
+  filter: var(--svgFilter3); 
   margin: 10px;
 }
 
@@ -37,7 +38,7 @@ padding: 30px;
     align-items: center;
     justify-content: center;
     height: 35px;
-      background-color: white;
+      background-color: rgb(231, 231, 231);
       padding: 0;
       border: none;
       width: 40px;
@@ -58,7 +59,7 @@ padding: 30px;
 }
 
 .input-register{
-    background-color: white;
+    background-color: rgb(231, 231, 231);
     outline: none;
     border: none;
     height: 35px;

@@ -1,0 +1,86 @@
+
+:root {
+   --setBtn: rgb(89, 89, 89);
+     --avatar: rgb(223, 222, 222);
+  --inputFontColor: rgb(204, 204, 204);
+  --input-color: rgb(140, 140, 140);
+  --notifiBody: rgb(33, 33, 33);
+  --btndiv: rgb(92, 92, 92);
+  --set-body: rgb(60, 60, 60);
+  --slider: rgb(49, 49, 49);
+  --setHeader: rgb(74, 74, 74);
+  --authBg: rgb(51, 51, 51);
+  --bg: rgb(36, 36, 36);
+  --bgBody: rgb(40, 40, 40);
+  --bgBody2: rgb(94, 94, 94);
+  --chartBody: rgb(33, 33, 33);
+  --chartLine: #cccccc;
+  --chartLineEffect: #c4c4c4;
+  --chartInfoBg: #444343;
+  --chartbtn: rgb(86, 86, 86);
+  --chartbtnBorder: rgb(97, 97, 97);
+  --chartbtnBorderHover: rgb(196, 196, 196);
+  --chartbtnBgHover: #4d4d4d;
+  --fontColor: rgb(214, 214, 214);
+  --fontColor2: rgb(78, 78, 78);  
+  --svgFilter: invert(0.8); 
+  --svgFilter2: invert(0); 
+  --svgFilter3: invert(1);
+}
+
+
+:root.light {
+  --setBtn: rgb(179, 179, 179);
+  --avatar: rgb(184, 184, 184);
+  --inputFontColor: rgb(70, 70, 70);
+  --input-color: rgb(218, 218, 218);
+  --notifiBody: #fcfcfc;
+  --btndiv: rgb(155, 155, 155);
+  --set-body: rgb(224, 224, 224);
+  --slider: rgb(226, 226, 226);
+  --setHeader: rgb(216, 216, 216);
+  --authBg: rgb(255, 255, 255);
+  --bg: #f3f3f3;
+  --bgBody: rgb(228, 228, 228);
+  --bgBody2: rgb(192, 192, 192);
+  --chartBody: rgb(212, 211, 211);
+  --chartLine: #444444;
+  --chartLineEffect: #484848;
+  --chartInfoBg: #cecdcd;
+  --chartbtn: rgb(86, 86, 86);
+  --chartbtnBorder: rgb(99, 99, 99);
+  --chartbtnBorderHover: rgb(69, 68, 68);
+  --chartbtnBgHover: #c1c1c1;
+  --fontColor: rgb(54, 54, 54);
+  --fontColor2: rgb(170, 170, 170);  
+  --svgFilter: invert(0.2); 
+  --svgFilter2: invert(1); 
+  --svgFilter3: invert(0);
+}
+
+/*   
+   --setBtn: rgb(89, 89, 89);
+  --inputFontColor: rgb(204, 204, 204);
+  --input-color: rgb(140, 140, 140);
+  --notifiBody: rgb(33, 33, 33);
+  --btndiv: rgb(92, 92, 92);
+  --set-body: rgb(60, 60, 60);
+  --slider: rgb(49, 49, 49);
+  --setHeader: rgb(74, 74, 74);
+  --authBg: rgb(51, 51, 51);
+  --bg: rgb(36, 36, 36);
+  --bgBody: rgb(40, 40, 40);
+  --bgBody2: rgb(94, 94, 94);
+  --chartBody: rgb(33, 33, 33);
+  --chartLine: #cccccc;
+  --chartLineEffect: #c4c4c4;
+  --chartInfoBg: #444343;
+  --chartbtn: rgb(86, 86, 86);
+  --chartbtnBorder: rgb(97, 97, 97);
+  --chartbtnBorderHover: rgb(196, 196, 196);
+  --chartbtnBgHover: #4d4d4d;
+  --fontColor: rgb(214, 214, 214);
+  --fontColor2: rgb(78, 78, 78);  
+  --svgFilter: invert(0.8); 
+  --svgFilter2: invert(0); 
+  --svgFilter3: invert(1);*/

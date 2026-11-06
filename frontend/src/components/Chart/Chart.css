@@ -5,15 +5,24 @@
   min-height: 500px;
   margin: 40px auto;
   padding: 24px;
-  background-color: rgb(33, 33, 33);
+  background-color: var(--chartBody);
   border-radius: 12px;
   font-family: "Roboto", sans-serif;
    user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
 }
+
+.main-scroll-anchor-charts{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -120px;
+  z-index: 101;
+}
+
 .Chart-title{
-    color: aliceblue;
+    color: var(--fontColor);
 }
 
 .Chart-currencies {
@@ -37,21 +46,20 @@
 
 
 .Chart-currencies::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--fontColor2);
   border-radius: 3px;
 }
 
 
 .Chart-currencies::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--fontColor2);
 }
 
 
 .Chart-currency-btn {
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.6);
-  font-family: "Roboto", sans-serif;
+  border: 1px solid var(--chartbtnBorder);
+  color: var(--chartbtn);
   font-size: 14px;
   padding: 6px 16px;
   border-radius: 6px;
@@ -60,14 +68,14 @@
 }
 
 .Chart-currency-btn:hover {
-  color: white;
-  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--chartbtn);
+  border-color: var(--chartbtnBorderHover);
 }
 
 .Chart-currency-btn.active {
-  background-color: #ababab;
-  border-color: #ababab;
-  color: rgb(100, 100, 100);
+  background-color: (--chartbtnBgHover);
+  border-color: var(--chartbtnBorderHover);
+  color: var(--fontColor);
 }
 
 .Chart-header {
@@ -78,7 +86,7 @@
 }
 
 .Chart-period-label {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--fontColor);
   font-size: 14px;
 }
 
@@ -91,7 +99,7 @@
 .Chart-period-btn {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--fontColor);
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   padding: 6px 12px;
@@ -101,7 +109,7 @@
 }
 
 .Chart-period-btn:hover {
-  color: white;
+  color: var(--fontColor);
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -115,15 +123,16 @@
   align-items: center;
   justify-content: center;
   height: 300px;
-  color: rgb(193, 193, 193);
+  color: var(--fontColor);
   font-size: 30px;
 }
 
 .charts-list{
+  position: relative;
  width: 100%;            
     max-width: 1420px; 
     min-width: 1420px;
-    background-color: rgb(40, 40, 40);
+    background-color: var(--bgBody);
     margin: 30px auto 0;
     display: grid; grid-template-columns: repeat(2, 1fr); 
 }
