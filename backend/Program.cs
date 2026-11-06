@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Microsoft.AspNetCore.Identity.UI.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +33,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
    
     options.User.RequireUniqueEmail = true;
     options.SignIn.RequireConfirmedEmail = true;
+
+    options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
@@ -64,7 +66,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddControllers();
 builder.Services.AddHttpClient<FrankfurterService>();
 builder.Services.AddScoped<TokenService>();
-builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddSingleton<TelegramService>();
 builder.Services.AddOpenApi();
 
 builder.Services.AddCors(options =>
