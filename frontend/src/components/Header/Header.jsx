@@ -6,7 +6,8 @@ import HeaderIndex from "./HeaderIndex.jsx"
 import HeaderRoad from './HeaderRoad.jsx'
 import Notifications from './Notifications.jsx'
 import Profile from './Profile.jsx'
-
+import HeaderSmallScreen from "./HeaderSmallScreen.jsx"
+import SmallHeader from "./SmallHeader.jsx"
 import { useState, useEffect } from 'react';
 
 const Header = () => {
@@ -27,14 +28,15 @@ const [now, setNow] = useState(new Date());
     }, []);
 
     return(
+    <div>
         <header>
             <div className="Logo-div">
-                <a href="/" className="Logo_a"><img className="LogoImg" src={logo} alt="svgfile"></img> <span>FiatFlux</span></a>
+                <a href="/" className="Logo_a"><img className="LogoImg" src={logo} alt="svgfile"></img> <span className="logoName">FiatFlux</span></a>
                <span className="Divider"/>
             <HeaderButtons/>
             <span className="Divider1"/>
             <HeaderIndex/>
-             <span className="Divider1"/>
+             <span className="Divider1" id="IndexDivider"/>
                 <span className="Time_now">{now.toLocaleTimeString()}</span>
             <Notifications/>
                 <Profile/>
@@ -43,7 +45,7 @@ const [now, setNow] = useState(new Date());
 
              <HeaderRoad/>
             
-        </header>
+        </header> <SmallHeader/><HeaderSmallScreen/> </div>
     )
 };
 

@@ -129,11 +129,17 @@
 
 .charts-list{
   position: relative;
- width: 100%;            
-    max-width: 1420px; 
-    min-width: 1420px;
+width: 100%;
+    max-width: 1420px;
     background-color: var(--bgBody);
     margin: 30px auto 0;
     display: grid; grid-template-columns: repeat(2, 1fr); 
+}
+
+@media (max-width: 1300px){
+  
+  .charts-list{
+     grid-template-columns: minmax(0, 1fr); 
+  }
 }
 
