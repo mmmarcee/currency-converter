@@ -27,7 +27,7 @@ public class AuthController : ControllerBase
         _telegramService = telegramService;
     }
 
-    HttpPost("register")]
+    [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -69,8 +69,8 @@ public class AuthController : ControllerBase
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
 
-
-        var user = await _userManager.FindByNameAsync(request.Email);
+       
+        var user = await _userManager.FindByNameAsync(request.Username);
         if (user == null)
             return Unauthorized(new { error = "Неверный логин или пароль" });
 
@@ -89,17 +89,17 @@ public class AuthController : ControllerBase
         return Ok(new AuthResponse
         {
             Token = token,
-            Email = user.UserName!,
+            Email = user.UserName!, 
             UserId = user.Id,
             ExpiresAt = DateTime.UtcNow.AddHours(1)
         });
     }
     [HttpPost("telegram-link")]
-    public async Task<IActionResult> GenerateTelegramLink([FromBody] string username)
+    public async Task<IActionResult> GenerateTelegramLink([FromBody] TelegramLinkRequest request)
     {
-        var user = await _userManager.FindByNameAsync(username);
-        if (user == null) return NotFound();
-
+       
+        var user = await _userManager.FindByNameAsync(request.Username);
+        if (user == null) return NotFound(new { error = "Пользователь не найден" });
 
         var token = Guid.NewGuid().ToString("N").Substring(0, 16);
 

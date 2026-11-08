@@ -70,6 +70,12 @@ namespace prodject67.API.Migrations
                     b.Property<long?>("TelegramChatId")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("TelegramConfirmationToken")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("TelegramTokenExpiresAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
 
