@@ -28,6 +28,7 @@
   --svgFilter2: invert(0); 
   --svgFilter3: invert(1);
   --svgFilter4: invert(0.2); 
+   --emailBg: rgb(66, 66, 66);
 }
 
 
@@ -60,6 +61,7 @@
   --svgFilter2: invert(1); 
   --svgFilter3: invert(0);
    --svgFilter4: invert(0.8); 
+   --emailBg: #ececec;
 }
 
 /*   
