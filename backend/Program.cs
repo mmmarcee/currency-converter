@@ -67,6 +67,7 @@ builder.Services.AddControllers();
 builder.Services.AddHttpClient<FrankfurterService>();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddSingleton<TelegramService>();
+builder.Services.AddHostedService<TelegramBotBackgroundService>();
 builder.Services.AddOpenApi();
 
 builder.Services.AddCors(options =>
