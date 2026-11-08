@@ -3,10 +3,6 @@ using CurrencyConverter.Models;
 using CurrencyConverter.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.AspNetCore.WebUtilities;
-using System.Text;
-using System.Text.Encodings.Web;
 
 namespace CurrencyConverter.Controllers;
 
@@ -17,30 +13,27 @@ public class AuthController : ControllerBase
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly TokenService _tokenService;
-    private readonly IEmailSender _emailSender;
+    private readonly TelegramService _telegramService; 
 
     public AuthController(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
         TokenService tokenService,
-        IEmailSender emailSender)
+        TelegramService telegramService) 
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _tokenService = tokenService;
-        _emailSender = emailSender;
+        _telegramService = telegramService;
     }
-
 
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+        if (!ModelState.IsValid) return BadRequest(ModelState);
 
         var existingUser = await _userManager.FindByEmailAsync(request.Email);
-        if (existingUser != null)
-            return BadRequest(new { error = "Пользователь с таким email уже существует" });
+        if (existingUser != null) return BadRequest(new { error = "Пользователь уже существует" });
 
         var user = new ApplicationUser
         {
@@ -49,58 +42,33 @@ public class AuthController : ControllerBase
         };
 
         var result = await _userManager.CreateAsync(user, request.Password);
+        if (!result.Succeeded) return BadRequest(new { errors = result.Errors.Select(e => e.Description) });
 
-        if (!result.Succeeded)
-            return BadRequest(new { errors = result.Errors.Select(e => e.Description) });
+       
+        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
+       
+        long myTestChatId = 1830005021; 
+        await _telegramService.SendMessageAsync(myTestChatId, $"Ваш код для входа: {code}");
 
-        var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-        token = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
-
-
-        var callbackUrl = Url.Action(
-            "ConfirmEmail",
-            "Auth",
-            new { userId = user.Id, token = token },
-            protocol: Request.Scheme);
-
-
-        await _emailSender.SendEmailAsync(
-            user.Email!,
-            "Подтвердите ваш email",
-            $"<h3>Добро пожаловать в Currency Converter!</h3>" +
-            $"<p>Чтобы подтвердить аккаунт, перейдите по <a href='{HtmlEncoder.Default.Encode(callbackUrl!)}'>этой ссылке</a>.</p>");
-
-        return Ok(new
-        {
-            message = "Регистрация успешна. Проверьте почту для подтверждения аккаунта.",
-            email = user.Email
-        });
+        return Ok(new { message = "Регистрация успешна. Проверьте Telegram!" });
     }
 
-
-
-    [HttpGet("confirm-email")]
-    public async Task<IActionResult> ConfirmEmail(string userId, string token)
+    
+    [HttpPost("confirm-code")]
+    public async Task<IActionResult> ConfirmCode([FromBody] ConfirmCodeRequest request)
     {
-        if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
-            return BadRequest(new { error = "Некорректная ссылка подтверждения" });
+        var user = await _userManager.FindByEmailAsync(request.Email);
+        if (user == null) return NotFound(new { error = "Пользователь не найден" });
 
-        var user = await _userManager.FindByIdAsync(userId);
-        if (user == null)
-            return NotFound(new { error = "Пользователь не найден" });
-
-        var decodedToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(token));
-
-        var result = await _userManager.ConfirmEmailAsync(user, decodedToken);
+        
+        var result = await _userManager.ConfirmEmailAsync(user, request.Code);
 
         if (!result.Succeeded)
-            return BadRequest(new { errors = result.Errors.Select(e => e.Description) });
+            return BadRequest(new { error = "Неверный код подтверждения" });
 
-        return Ok(new { message = "Email успешно подтверждён! Теперь вы можете войти." });
+        return Ok(new { message = "Аккаунт успешно подтвержден! Теперь вы можете войти." });
     }
-
-
 
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
@@ -117,7 +85,7 @@ public class AuthController : ControllerBase
         if (!result.Succeeded)
         {
             if (result.IsNotAllowed)
-                return Unauthorized(new { error = "Email не подтверждён. Проверьте почту." });
+                return Unauthorized(new { error = "Аккаунт не подтвержден. Проверьте Telegram." }); 
 
             return Unauthorized(new { error = "Неверный email или пароль" });
         }
