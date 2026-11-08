@@ -7,12 +7,16 @@
 }
 
 html, body, #root {
-  width: 100%;
-  min-height: 100%;
+
    font-family: var(--app-font, "Roboto", sans-serif);
+   background-color: var(--bg);
+     -webkit-tap-highlight-color: transparent;
 }
 
 body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 50px;
   margin: 0;
   line-height: 1.5;     
   letter-spacing: normal;
@@ -29,6 +33,7 @@ flex-direction: column;
   position: fixed;
   top: 0;
   flex-shrink: 0;
+  
 }
 
 button, input, select, textarea {
@@ -300,7 +305,7 @@ font-size: 14px;
   height: 18px;
   padding: 0 5px;
   border-radius: 999px;
-  background: #e53935;
+  background: #ff4b4b;
   color: #fff;
   font-size: 11px;
   font-weight: 600;
@@ -311,7 +316,7 @@ font-size: 14px;
 
 
 .Notifications-list{
-  background-color: var(--chartBody);
+background-color: var(--chartBody);
   position: absolute;
  top: calc(100% + 12px);
  left: 50%;                     
@@ -328,6 +333,9 @@ font-size: 14px;
     transition: opacity 0.3s ease, transform 0.3s ease;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
+
+
+
 
 
 .Notifications-list.open{
@@ -599,3 +607,361 @@ margin: 20px;
 .account-btn:hover{
   background-color: rgb(99, 99, 99, 0.2);
 }
+
+
+
+
+.header-tap-bar{
+height: 50px;
+min-width: 100%;
+display: none;
+align-items: center;
+justify-content: space-around;
+position: fixed;
+z-index: 87;
+bottom: 0;
+left: 0;
+right: 0;
+background:var(--set-body);
+overflow-y: hidden;
+}
+
+
+
+.logo-div-small-screen-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 50px;
+  z-index: 110;
+}
+
+.logo-small-screen-header{
+  width: 100%;
+  height: 100%;
+  filter: var(--svgFilter3);
+}
+
+
+.SmallHeader{
+  position: relative;
+height: 50px;
+min-width: 100%;
+display: none;
+align-items: center;
+justify-content: space-between;
+position: fixed;
+z-index: 87;
+top: 0;
+left: 0;
+right: 0;
+background:var(--set-body);
+border-top: 1px solid #303030;
+  color: var(--fontColor);
+padding-right: 10px;
+padding-left: 10px;
+font-size: 20px;
+border-bottom:2px solid rgb(0, 0, 0, 0.4) ;
+}
+
+.small-header-ul{
+  position: absolute;
+  bottom: -102px;
+  left: 0;
+right: 0;
+  min-width: 100%;
+  background:var(--set-body);
+display: none;
+}
+.small-header-ul.open{
+ display: block;
+}
+
+.small-header-li{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom:2px solid rgb(0, 0, 0, 0.4) ;
+}
+
+#notifi-li{
+  position: relative;
+}
+.Notifi-count{
+position: absolute;
+right: 2px;
+top: 2px;
+background-color: #ff4b4b;
+border-radius: 999px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 11px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.OtherBtn{
+  background-color: transparent;
+  color: var(--fontColor);
+  border: none;
+  position: relative;
+}
+.Notifi-count-dot{
+  width: 14px;
+  height: 14px;
+  background-color: #ff4b4b;
+  border-radius: 999px;
+  position: absolute;
+  right: -2px;
+  top: 2px;
+}
+
+.OtherBtn span {
+font-size: 40px;
+}
+
+.notif {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: var(--set-body);
+  font-family: Roboto, Arial, sans-serif;
+  box-sizing: border-box;
+    overscroll-behavior: contain;
+}
+
+.notif-header {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding-right: 20px;
+    overscroll-behavior: contain;
+}
+.notif-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: transparent;
+  color: var(--app-font);
+  cursor: pointer;
+}
+.notif-title {
+  flex: 1;
+  margin: 0;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  color: var(--app-font);
+}
+.notif-count {
+  font-size: 14px;
+  color: #969696;
+}
+
+.notif-list {
+  flex: 1;
+  margin: 0;
+  margin-top: 80px;
+  padding: 4px 16px 12px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+.notif-empty {
+  margin-top: 40px;
+  text-align: center;
+  color: #a8a8a8;
+  font-size: 16px;
+}
+
+.notif-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 10px 4px 10px 16px;
+  background: var(--btndiv);
+  border-radius: 14px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.notif-dot {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff4b4b;
+}
+.notif-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  color: #f2f2f2;
+}
+.notif-card.is-read .notif-dot { background: transparent; }
+.notif-card.is-read .notif-text { color: #bdbdbd; }
+
+.notif-delete {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.notif-delete img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.85;
+}
+
+.notif-bar {
+  display: flex;
+  gap: 12px;
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+  background: var(--set-body);
+  border-top: 1px solid #333;
+}
+.notif-btn {
+  flex: 1;
+  height: 52px;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+.notif-btn--secondary {
+  border: 1.5px solid #5a5a5a;
+  background: transparent;
+  color: var(--app-font);
+  font-weight: 500;
+}
+.notif-btn--primary {
+  border: 0;
+  background: var(--btn);
+  color: var(--fontColor2);
+  font-weight: 700;
+}
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1800px){
+#HeaderIndex2{
+  display: none;
+}
+
+
+}
+
+
+
+
+
+@media (max-width: 1600px) { 
+.down{
+  display: none;
+}
+.Time_now{
+  display: none;
+}
+
+
+}
+
+ @media (max-width: 1456px) { 
+
+  .HeaderIndex{
+    display: none;
+  }
+ 
+  #IndexDivider{
+    display: none;
+  }
+
+ }
+
+
+
+@media (max-width: 950px) {
+  .logoName{
+    display: none;
+  }
+
+
+  .Logo_a{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+header{
+  display: none;
+}
+
+.header-tap-bar{
+  display: flex !important;
+
+
+}
+
+.SmallHeader{
+  display: flex !important;
+}
+}
+
+
+@media (min-width: 768px) {
+.notif{
+  display: none;
+}
+}
+
+
