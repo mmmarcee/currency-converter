@@ -24,8 +24,8 @@ const Profile = () => {
 }, []
 ) 
     return (
-        <div className="Profile_div" ref={rowRef} onClick={() => setOpen(!open)} >
-         <span className="Avatar"/><span className="Online"/> <img src={down} alt="svgfile" className="down"  onClick={() => setOpen(!open)} ></img>
+        <div className="Profile_div" ref={rowRef}  >
+         <span className="Avatar"onClick={() => setOpen(!open)} /><span className="Online"/> <img src={down} alt="svgfile" className="down"  onClick={() => setOpen(!open)} ></img>
          
          <div className={`profile-list ${open ? 'open' : ''}` }>
             <div className="Avatar-list"></div>
