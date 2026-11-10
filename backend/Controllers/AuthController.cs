@@ -13,13 +13,13 @@ public class AuthController : ControllerBase
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly TokenService _tokenService;
-    private readonly TelegramService _telegramService; 
+    private readonly TelegramService _telegramService;
 
     public AuthController(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
         TokenService tokenService,
-        TelegramService telegramService) 
+        TelegramService telegramService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
@@ -32,36 +32,30 @@ public class AuthController : ControllerBase
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
 
-        var existingUser = await _userManager.FindByEmailAsync(request.Email);
-        if (existingUser != null) return BadRequest(new { error = "Пользователь уже существует" });
+        var existingUser = await _userManager.FindByNameAsync(request.Username);
+        if (existingUser != null) return BadRequest(new { error = "Логин уже занят" });
 
         var user = new ApplicationUser
         {
-            UserName = request.Email,
-            Email = request.Email
+            UserName = request.Username,
+            Email = $"{request.Username}@local.com"
+
         };
 
         var result = await _userManager.CreateAsync(user, request.Password);
         if (!result.Succeeded) return BadRequest(new { errors = result.Errors.Select(e => e.Description) });
 
-       
-        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-
-       
-        long myTestChatId = 1830005021; 
-        await _telegramService.SendMessageAsync(myTestChatId, $"Ваш код для входа: {code}");
-
-        return Ok(new { message = "Регистрация успешна. Проверьте Telegram!" });
+        return Ok(new { message = "Регистрация успешна. Подтвердите аккаунт через Telegram." });
     }
 
-    
+
     [HttpPost("confirm-code")]
     public async Task<IActionResult> ConfirmCode([FromBody] ConfirmCodeRequest request)
     {
         var user = await _userManager.FindByEmailAsync(request.Email);
         if (user == null) return NotFound(new { error = "Пользователь не найден" });
 
-        
+
         var result = await _userManager.ConfirmEmailAsync(user, request.Code);
 
         if (!result.Succeeded)
@@ -73,21 +67,21 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+        if (!ModelState.IsValid) return BadRequest(ModelState);
 
-        var user = await _userManager.FindByEmailAsync(request.Email);
+       
+        var user = await _userManager.FindByNameAsync(request.Username);
         if (user == null)
-            return Unauthorized(new { error = "Неверный email или пароль" });
+            return Unauthorized(new { error = "Неверный логин или пароль" });
 
         var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
 
         if (!result.Succeeded)
         {
             if (result.IsNotAllowed)
-                return Unauthorized(new { error = "Аккаунт не подтвержден. Проверьте Telegram." }); 
+                return Unauthorized(new { error = "Аккаунт не подтвержден. Проверьте Telegram." });
 
-            return Unauthorized(new { error = "Неверный email или пароль" });
+            return Unauthorized(new { error = "Неверный логин или пароль" });
         }
 
         var token = _tokenService.GenerateToken(user);
@@ -95,9 +89,28 @@ public class AuthController : ControllerBase
         return Ok(new AuthResponse
         {
             Token = token,
-            Email = user.Email!,
+            Email = user.UserName!, 
             UserId = user.Id,
             ExpiresAt = DateTime.UtcNow.AddHours(1)
         });
+    }
+    [HttpPost("telegram-link")]
+    public async Task<IActionResult> GenerateTelegramLink([FromBody] TelegramLinkRequest request)
+    {
+       
+        var user = await _userManager.FindByNameAsync(request.Username);
+        if (user == null) return NotFound(new { error = "Пользователь не найден" });
+
+        var token = Guid.NewGuid().ToString("N").Substring(0, 16);
+
+        user.TelegramConfirmationToken = token;
+        user.TelegramTokenExpiresAt = DateTime.UtcNow.AddMinutes(15);
+        await _userManager.UpdateAsync(user);
+
+
+        var botUsername = "fiatfluxbot";
+        var deepLink = $"https://t.me/{botUsername}?start={token}";
+
+        return Ok(new { url = deepLink });
     }
 }

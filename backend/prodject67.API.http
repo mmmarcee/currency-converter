@@ -1,28 +1,28 @@
 @host = http://localhost:5139
 
 ### 1. Регистрация (отправляет код в ТГ)
-POST {{host}}/api/auth/register
+POST http://localhost:5139/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "art9m12+test99@gmail.com",
-  "password": "Test1235"
+  "username": "testuser4",
+  "password": "Password123"
 }
 
 ### 2. Подтверждение кода из ТГ
-POST {{host}}/api/auth/confirm-code
+### 2. Получить ссылку на Telegram
+POST http://localhost:5139/api/auth/telegram-link
 Content-Type: application/json
 
 {
-  "email": "art9m12+test99@gmail.com",
-  "code": "1830005021"
+  "username": "testuser4"
 }
 
 ### 3. Вход (после подтверждения)
-POST {{host}}/api/auth/login
+POST http://localhost:5139/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "art9m12+test99@gmail.com",
-  "password": "Test1235"
+  "username": "testuser4",
+  "password": "Password123"
 }
