@@ -30,23 +30,58 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
-        if (!ModelState.IsValid) return BadRequest(ModelState);
+        
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
 
+        if (request.Username.Length < 3)
+        {
+            return BadRequest(new
+            {
+                message = "Логин должен содержать минимум 3 символа"
+            });
+        }
+
+        if (request.Password.Length < 6)
+        {
+            return BadRequest(new
+            {      
+                message = "Пароль должен содержать минимум 6 символов"
+            });
+        }
+
+        
         var existingUser = await _userManager.FindByNameAsync(request.Username);
-        if (existingUser != null) return BadRequest(new { error = "Логин уже занят" });
+        if (existingUser != null)
+        {
+            return BadRequest(new
+            {
+          
+                message = "Логин уже занят"
+            });
+        }
 
         var user = new ApplicationUser
         {
             UserName = request.Username,
             Email = $"{request.Username}@local.com"
-
         };
 
+        
         var result = await _userManager.CreateAsync(user, request.Password);
-        if (!result.Succeeded) return BadRequest(new { errors = result.Errors.Select(e => e.Description) });
+
+        if (!result.Succeeded)
+        {
+            return BadRequest(new
+            {
+                message = "Пароль не соответствует требованиям",
+                details = result.Errors.Select(e => new { code = e.Code, description = e.Description })
+            });
+        }
 
         return Ok(new { message = "Регистрация успешна. Подтвердите аккаунт через Telegram." });
     }
+
 
 
     [HttpPost("confirm-code")]
