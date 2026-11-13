@@ -1,5 +1,5 @@
 export const allData = {
-  USD: {
+  RUB: {
     '1W': [
       { date: '20.09', value: 84.20 },
       { date: '21.09', value: 84.20 },

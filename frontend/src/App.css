@@ -11,7 +11,14 @@
   --slider: rgb(49, 49, 49);
   --setHeader: rgb(74, 74, 74);
   --authBg: rgb(51, 51, 51);
-  --bg: rgb(36, 36, 36);
+  --bgch: rgb(40, 40, 40);
+  --bg: linear-gradient(
+    180deg,
+    #2e2e2e 0%,
+    #292929 35%,
+    #242424 65%,
+    #1f1f1f 100%
+  ); 
   --bgBody: rgb(40, 40, 40);
   --bgBody2: rgb(94, 94, 94);
   --chartBody: rgb(33, 33, 33);
@@ -31,7 +38,13 @@
    --emailBg: rgb(66, 66, 66);
 }
 
-
+/* linear-gradient(
+    180deg,
+    #2e2e2e 0%,
+    #292929 35%,
+    #242424 65%,
+    #1f1f1f 100%
+  ); */
 :root.light {
   --btn: black;
   --setBtn: rgb(179, 179, 179);
@@ -44,7 +57,14 @@
   --slider: rgb(226, 226, 226);
   --setHeader: rgb(216, 216, 216);
   --authBg: rgb(255, 255, 255);
-  --bg: #f3f3f3;
+  --bgch: rgb(218, 218, 218);
+  --bg: linear-gradient(
+    180deg,
+    #fcfcfc 0%,
+    #dadada 35%,
+    #d4d4d4 65%,
+    #bebebe 100%
+  );
   --bgBody: rgb(228, 228, 228);
   --bgBody2: rgb(192, 192, 192);
   --chartBody: rgb(212, 211, 211);

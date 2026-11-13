@@ -1,16 +1,27 @@
+
+
 .Chart-container {
+  display: flex;
+  flex-direction: column;
+
   overflow: hidden;
   width: 100%;
-  max-width: 625px;
-  min-height: 500px;
-  margin: 40px auto;
-  padding: 24px;
-  background-color: var(--chartBody);
+  min-width: 1025px;
+  min-height: 550px;
+  margin-top: 130px;  
+  background-color: var(--bgch);
   border-radius: 12px;
   font-family: "Roboto", sans-serif;
    user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  border-radius: 15px;
+border: 1px solid rgba(253, 253, 253, 0.11);
+padding: 23px;
+}
+
+.Chart-container .recharts-cartesian-grid-horizontal line:last-child {
+  display: none;
 }
 
 .main-scroll-anchor-charts{
@@ -23,19 +34,47 @@
 
 .Chart-title{
     color: var(--fontColor);
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    gap: 10px;
+    font-weight: 200;
+}
+
+.Chart-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 16px;
+}
+
+.Chart-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 75%;
+  min-width: 0;
+  max-width: 75%;
 }
 
 .Chart-currencies {
   display: flex;
+  justify-content: flex-start;
   gap: 6px;
+  width: 50%;
+  min-width: 0;
+  max-width: 100%;
+  align-self: flex-end;
   margin-bottom: 16px;
-    overflow-x: auto;
+  overflow-x: auto;
   overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .Chart-currencies::-webkit-scrollbar {
-  width: 2px;             
-  height: 4px;
+  width: 2px;
+  height: 9px;
 }
 
 
@@ -48,15 +87,19 @@
 .Chart-currencies::-webkit-scrollbar-thumb {
   background: var(--fontColor2);
   border-radius: 3px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
 
 .Chart-currencies::-webkit-scrollbar-thumb:hover {
   background: var(--fontColor2);
+  border: 0;
 }
 
 
 .Chart-currency-btn {
+  flex: 0 0 auto;
   background: none;
   border: 1px solid var(--chartbtnBorder);
   color: var(--chartbtn);
@@ -92,6 +135,7 @@
 
 .Chart-periods {
   display: flex;
+  justify-content: flex-end;
   gap: 6px;
   margin-bottom: 16px;
 }
@@ -127,19 +171,9 @@
   font-size: 30px;
 }
 
-.charts-list{
-  position: relative;
-width: 100%;
-    max-width: 1420px;
-    background-color: var(--bgBody);
-    margin: 30px auto 0;
-    display: grid; grid-template-columns: repeat(2, 1fr); 
-}
 
 @media (max-width: 1300px){
   
-  .charts-list{
-     grid-template-columns: minmax(0, 1fr); 
-  }
+
 }
 
