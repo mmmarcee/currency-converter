@@ -25,7 +25,21 @@ const Profile = () => {
 ) 
     return (
         <div className="Profile_div" ref={rowRef}  >
-         <span className="Avatar"onClick={() => setOpen(!open)} /><span className="Online"/> <img src={down} alt="svgfile" className="down"  onClick={() => setOpen(!open)} ></img>
+        <button
+          type="button"
+          className="profile-trigger"
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-label={`Profile: ${currentUser.username}`}
+        >
+          <span className="profile-trigger-name">{currentUser.username}</span>
+          <span className="profile-avatar-wrap">
+            <span className="Avatar" />
+            <span className="Online" />
+          </span>
+          
+          <img src={down} alt="" aria-hidden="true" className="profile-chevron" />
+        </button>
          
          <div className={`profile-list ${open ? 'open' : ''}` }>
             <div className="Avatar-list"></div>

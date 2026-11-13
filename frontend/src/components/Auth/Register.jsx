@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Register.css';
 import logo from "../../assets/Register&Login/logo.svg";
 import google from "../../assets/Register&Login/google.png";

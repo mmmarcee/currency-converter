@@ -30,17 +30,17 @@ const [now, setNow] = useState(new Date());
     return(
     <div>
         <header>
+            <div className="Header-div">
             <div className="Logo-div">
-                <a href="/" className="Logo_a"><img className="LogoImg" src={logo} alt="svgfile"></img> <span className="logoName">FiatFlux</span></a>
-               <span className="Divider"/>
+                <a href="/" className="Logo_a"><img className="LogoImg" src={logo} alt="svgfile"></img> <span className="logoName"><span className="logoFiat">Fiat</span><span className="logoFlux">Flux</span></span></a>
+              
             <HeaderButtons/>
-            <span className="Divider1"/>
-            <HeaderIndex/>
-             <span className="Divider1" id="IndexDivider"/>
+         </div>
+            <div className="Header-right">
                 <span className="Time_now">{now.toLocaleTimeString()}</span>
             <Notifications/>
                 <Profile/>
-
+            </div>
              </div>
 
              <HeaderRoad/>

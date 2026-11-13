@@ -2,5 +2,6 @@
 .MainLayout {
   padding-top: 9px;   
   min-height: 100vh;
-  background-color:  var(--bg);
+  background:  var(--bg) fixed no-repeat;
+  background-size: cover;
 }

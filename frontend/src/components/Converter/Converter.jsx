@@ -2,6 +2,9 @@ import './Converter.css'
 import CurrencySelect from './CurrencySelect.jsx'
 import {currencies} from '../Arrays.jsx'
 import { useState, useEffect } from 'react';
+import Sparkline from './Sparkline.jsx'
+import { allData } from '../Chart/data.js';
+
 const Converter = () => {
   
   const [from, setFrom] = useState(currencies[0]);
@@ -10,6 +13,26 @@ const Converter = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [rate , setRate] = useState(null);
+  const sparklineData = (allData[from.code] ?? allData[to.code])?.['1W']?.map(({ value }) => value) ?? [];
+  const sparklineUp = sparklineData.length > 1 && sparklineData[sparklineData.length - 1] >= sparklineData[0];
+
+useEffect(() => {
+  const loadRate = async () => {
+  try {
+const res = await fetch(`http://localhost:5139/api/currency/convert?from=${from.code}&to=${to.code}&amount=1`)
+    if (!res.ok) throw new Error('Error');
+      const data = await res.json();
+      setRate(data.result);
+  }
+  catch (err) {
+    setRate(null);
+  }}
+  loadRate();
+},[from, to])
+
+
+
 
 
  const swap = () => {
@@ -61,7 +84,7 @@ const convert = async () => {
  
     return(
         <div className="ConverterBody">
-          <div className='main-scroll-anchor' id='ScrollToConverter'></div>
+          <span className='ConverterTitle'>Converter</span>
             <div className='Converter'>
             <div className='input'>
                 <h1 className='Inputs_h1'>QUANTITY</h1>
@@ -76,7 +99,9 @@ const convert = async () => {
 
             </div>
             <div className='swapDiv'>
+              <div className='SwapDivider'></div>
         <span className='swapImg' onClick={swap}/>
+         <div className='SwapDivider'></div>
             </div>
 
              <div className='output'>
@@ -94,7 +119,19 @@ const convert = async () => {
 <div className='button-div'><button className='convert-button' onClick={convert} disabled={loading}>
 {loading ? 'Convertation...' : 'Convert'}
 </button></div>
-        </div></div>
+    
+        <div className="exchange-rate">
+          <div className="exchange-rate-info">
+            <span>1 {from.code} =</span>
+            <span className="exchange-rate-value">
+              {rate ? `${rate} ${to.code}` : `? ${to.code}`}
+            </span>
+          </div>
+          {sparklineData.length > 1 && <Sparkline data={sparklineData} up={sparklineUp} />}
+        </div>
+
+    </div>
+  </div>
     )
 }
 export default Converter

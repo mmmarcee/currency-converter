@@ -15,7 +15,7 @@ async function post(path, body) {
   console.log(`[POST] ${path}`, res.status, data);
 
   if (!res.ok) {
-    let message = `Error ${res.status}`;
+   let message = `Error ${res.status}`;
     if (data?.title) message = data.title;
     if (data?.message) message = data.message;
     if (typeof data === 'string') message = data;
@@ -26,7 +26,7 @@ async function post(path, body) {
     err.data = data;
     throw err;
   }
-  return data;
+  return data; 
 }
 
 export const register = (username, password) =>
