@@ -27,5 +27,8 @@ Content-Type: application/json
   "password": "Password123"
 }
 ### 1 Биткоин в Фунты
+GET http://localhost:5139/api/crypto/convert?from=bitcoin&to=kzt&amount=1
 ## 1 Биткоин в Доллары
-http://localhost:5139/api/crypto/list
+### История Биткоина за 10 лет (в долларах)
+GET http://localhost:5139//api/crypto/history?from=bitcoin&to=usd&period=10y
+

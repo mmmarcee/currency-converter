@@ -84,7 +84,7 @@ public class FrankfurterService
 
 
 
-    
+
 
 
     public async Task<List<FrankfurterRate>> GetHistoryAsync(string from, string to, string period)
@@ -94,37 +94,34 @@ public class FrankfurterService
 
         DateTime endDate = DateTime.UtcNow;
         DateTime startDate;
-        string group;
+        string group = "";
 
+       
         switch (period.ToLower())
         {
             case "10y":
                 startDate = endDate.AddYears(-10);
-                group = "year";
+                group = "year"; // 1 точка в год
                 break;
             case "1y":
                 startDate = endDate.AddYears(-1);
-                group = "month";
+                group = "month"; // 1 точка в месяц
                 break;
             case "1m":
                 startDate = endDate.AddMonths(-1);
-                group = "";
                 break;
             case "1w":
                 startDate = endDate.AddDays(-7);
-                group = "";
                 break;
             default:
                 startDate = endDate.AddMonths(-1);
-                group = "";
                 break;
         }
 
-        string start = startDate.ToString("yyyy-MM-dd");
-        string end = endDate.ToString("yyyy-MM-dd");
+        string startStr = startDate.ToString("yyyy-MM-dd");
+        string endStr = endDate.ToString("yyyy-MM-dd");
 
-        string url = $"https://api.frankfurter.dev/v2/rates?from={start}&to={end}" +
-                     $"&base={fromCode.ToLower()}&quotes={toCode.ToLower()}";
+        string url = $"https://api.frankfurter.dev/v2/rates?from={startStr}&to={endStr}&base={fromCode}&quotes={toCode}";
 
         if (!string.IsNullOrEmpty(group))
         {
@@ -137,7 +134,7 @@ public class FrankfurterService
 
         if (data == null)
         {
-            throw new ArgumentException($"Не удалось получить историю {fromCode}/{toCode}");
+            throw new ArgumentException($"Не удалось получить историю для {fromCode}/{toCode}");
         }
 
         return data;
